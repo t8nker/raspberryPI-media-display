@@ -5,6 +5,7 @@
 
 This project allows you to loop videos and images on a Raspberry Pi connected to a display. It runs as a background service, meaning it starts automatically on boot—no desktop environment or mouse required.
 
+I use this code to display images and videos on a small 5 inch CRT using a rf modulator
 ---
 
 ## 🛠 Requirements
@@ -25,10 +26,10 @@ Example structure:
 ├── media/               <-- Your media files go here
 │   ├── Videos/
 │   ├── Images/
-│   ├── salemplaylist.txt  <-- Default backup list
-│   └── my_art.txt         <-- Custom list
-├── run_playlist.sh      <-- The engine
-└── switch_playlist.sh   <-- The controller
+│   ├── salemplaylist.txt  <-- Default playlist
+│   └── my_art.txt         <-- yourplaylist
+├── run_playlist.sh     
+└── switch_playlist.sh   
 ```
 
 ## Creating Playlists
@@ -50,11 +51,12 @@ Use the controller script to swap between different media lists without stopping
 sudo ./switch_playlist.sh yourplaylist.txt
 ```
 
-##Important Note
+## Important Note
 This project assumes your username is pi. If you are using a different username, you must update the paths in:
 ```
 media_looper.service (The ExecStart and User lines)
 run_playlist.sh (The MEDIA_DIR variable)
 switch_playlist.sh (The SERVICE path)
 ```
+
 
