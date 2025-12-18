@@ -20,6 +20,7 @@ sudo apt update && sudo apt install mpv
 ## Media Layout
 Keep all your media in one main folder so the scripts can find them. Media files can be videos or images.
 Example structure:
+```bash
 /home/pi/
 ├── media/               <-- Your media files go here
 │   ├── Videos/
@@ -28,15 +29,15 @@ Example structure:
 │   └── my_art.txt         <-- Custom list
 ├── run_playlist.sh      <-- The engine
 └── switch_playlist.sh   <-- The controller
-
+```
 
 ## Creating Playlists
 Playlists are just simple .txt files with one absolute path per line. Example (yourplaylist.txt):
-
+```
 /home/pi/media/Images/trippy_pattern.png
 /home/pi/media/Videos/vhs_glitch.mp4
 /home/pi/media/Images/scary_face.jpg
-
+```
 ## How to Use
 Move the media_looper.service file to /etc/systemd/system/ and enable it:
 ```bash
@@ -51,8 +52,9 @@ sudo ./switch_playlist.sh yourplaylist.txt
 
 ##Important Note
 This project assumes your username is pi. If you are using a different username, you must update the paths in:
-
+```
 media_looper.service (The ExecStart and User lines)
 run_playlist.sh (The MEDIA_DIR variable)
 switch_playlist.sh (The SERVICE path)
+```
 
