@@ -1,0 +1,4 @@
+#Example playlist (`playlist1.txt`):
+
+/home/pi/media/Videos/exampleVideo1.mp4
+/home/pi/media/misc/exampleMiscVideo2.mp4

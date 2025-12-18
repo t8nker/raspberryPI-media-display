@@ -1,0 +1,15 @@
+[Unit]
+Description=Media Looper Service
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/media
+ExecStart=/bin/bash /home/pi/run_playlist.sh playlist1.txt
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
