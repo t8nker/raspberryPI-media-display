@@ -14,10 +14,10 @@ Keep all your media in one main folder so the scripts can find them. Media files
 Example structure:
 
 /home/pi/media/
-├── Videos/
-├── Images/
-├── playlist1.txt
-└── playlist2.txt
+├──Videos/
+├──Images/
+├──playlist1.txt
+└──playlist2.txt
 
 
 
@@ -43,4 +43,5 @@ or
 sudo ./switch_playlist.sh yourplaylist2.txt
 
 Note: If your username isn't pi, make sure to change the paths in the scripts and the .service file to match your actual home directory!
+
 
