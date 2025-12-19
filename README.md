@@ -3,10 +3,18 @@
 ![MPV](https://img.shields.io/badge/Player-MPV-334455?style=for-the-badge&logo=mpv)
 ![Bash](https://img.shields.io/badge/Language-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
-This project allows you to loop videos and images on a Raspberry Pi connected to a display. It runs as a background service, meaning it starts automatically on boot—no desktop environment or mouse required.
-
-I use this code to display images and videos on a small 5 inch CRT using a rf modulator
+This is a personal project that allows you to loop videos and images on a Raspberry Pi connected to a display. It runs as a background service, meaning it starts automatically on boot—no desktop environment or mouse required.
+I use this to display videos on a small 5 inch portable crt tv from the 1980's using a Pi
 ---
+## Important Note
+This project assumes your username is pi. If you are using a different username, you must update the paths in:
+```
+webui.service (The ExecStart and User lines)
+media_looper.service (The ExecStart and User lines)
+run_playlist.sh (The MEDIA_DIR variable)
+switch_playlist.sh (The SERVICE path)
+```
+
 
 ## 🛠 Requirements
 * **Raspberry Pi** 
@@ -15,7 +23,8 @@ I use this code to display images and videos on a small 5 inch CRT using a rf mo
 
 **Install Dependencies:**
 ```bash
-sudo apt update && sudo apt install mpv
+sudo apt update && sudo apt install mpv socat python3 python3-pip && sudo pip3 install flask
+
 ```
 
 ## Media Layout
@@ -52,24 +61,24 @@ sudo ./switch_playlist.sh yourplaylist.txt
 ```
 
 ### Optional: Web Remote Control
+**Security Note**: The web UI uses no authentication by default and is intended for trusted local networks only. Do not expose port 8080 to the internet.
+
 Copy the webui.service to /etc/systemd/system/:
 ```
 sudo cp systemd/webui.service /etc/systemd/system/
 
+```
 Then:
+```
 sudo systemctl daemon-reload
 sudo systemctl enable --now webui.service
-
+```
 Access at http://your-pi-ip:8080
-Dependencies: sudo apt install python3-flask socat
-```
-## Important Note
-This project assumes your username is pi. If you are using a different username, you must update the paths in:
-```
-media_looper.service (The ExecStart and User lines)
-run_playlist.sh (The MEDIA_DIR variable)
-switch_playlist.sh (The SERVICE path)
-```
+
+
+
+
+
 
 
 
