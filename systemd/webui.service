@@ -1,0 +1,13 @@
+[Unit]
+Description=CRT Web Remote Control
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/usr/bin/python3 /home/pi/webui.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
