@@ -51,6 +51,17 @@ Use the controller script to swap between different media lists without stopping
 sudo ./switch_playlist.sh yourplaylist.txt
 ```
 
+### Optional: Web Remote Control
+```Copy the webui.service to /etc/systemd/system/:
+sudo cp systemd/webui.service /etc/systemd/system/
+
+Then:
+sudo systemctl daemon-reload
+sudo systemctl enable --now webui.service
+
+Access at http://your-pi-ip:8080
+Dependencies: sudo apt install python3-flask socat
+```
 ## Important Note
 This project assumes your username is pi. If you are using a different username, you must update the paths in:
 ```
@@ -58,5 +69,6 @@ media_looper.service (The ExecStart and User lines)
 run_playlist.sh (The MEDIA_DIR variable)
 switch_playlist.sh (The SERVICE path)
 ```
+
 
 
