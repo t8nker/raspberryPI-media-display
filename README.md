@@ -52,8 +52,8 @@ sudo ./switch_playlist.sh yourplaylist.txt
 ```
 
 ### Optional: Web Remote Control
-```Copy the webui.service to /etc/systemd/system/:
-sudo cp systemd/webui.service /etc/systemd/system/
+Copy the webui.service to /etc/systemd/system/:
+```sudo cp systemd/webui.service /etc/systemd/system/
 
 Then:
 sudo systemctl daemon-reload
@@ -69,6 +69,7 @@ media_looper.service (The ExecStart and User lines)
 run_playlist.sh (The MEDIA_DIR variable)
 switch_playlist.sh (The SERVICE path)
 ```
+
 
 
 
